@@ -7,7 +7,10 @@ export default defineConfig({
   logLevel: 'error', // Suppress warnings, only show errors
   server: {
     // Modal (and similar) dev tunnels send a non-localhost Host header; Vite 6+ blocks unknown hosts by default.
-    allowedHosts: true,
+    allowedHosts: ['.w.modal.host'],
+  },
+  preview: {
+    allowedHosts: ['.w.modal.host'],
   },
   plugins: [
     base44({

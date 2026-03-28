@@ -5,6 +5,10 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   logLevel: 'error', // Suppress warnings, only show errors
+  server: {
+    // Modal (and similar) dev tunnels send a non-localhost Host header; Vite 6+ blocks unknown hosts by default.
+    allowedHosts: ['.w.modal.host'],
+  },
   plugins: [
     base44({
       // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
